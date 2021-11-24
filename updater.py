@@ -22,3 +22,5 @@ code=f[f.find("<code>")+len("<code>"):f.find("</code>")]
 print(code)
 ldos.write(code)
 print("L-DOS X has been updated.")
+ldos.close()
+exit()
