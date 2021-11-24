@@ -1,6 +1,10 @@
 # L-DOS X UPDATER
 import requests
-out=requests.get("https://lim95.netlify.app/updater.html")
+try:
+    out=requests.get(url="https://lim95.netlify.app/updater.html",timeout=3)
+except requests.ConnectionError as exception:
+    print("Connect to the internet!")
+    exit()
 if out.status_code==404:
     print("The L-DOS X servers have been discontinued.\nThank you for using L-DOS.")
     exit()
