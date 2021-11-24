@@ -18,9 +18,9 @@ except FileNotFoundError:
 link = "https://lim95.netlify.app/updater.html"
 f = requests.get(link)
 f=f.text
-code=f[f.find("<code>")+len("<code>"):f.find("</code>")]
-print(code)
-ldos.write(code)
+code=f[f.find("<code>")+len("<code>"):f.find("</code>")].strip()
+print(code.strip())
+ldos.write(code.replace("\n",""))
 print("L-DOS X has been updated.")
 ldos.close()
 exit()
