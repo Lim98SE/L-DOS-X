@@ -1,7 +1,8 @@
 # L-DOS X UPDATER
 import requests
+link = "https://ldosx-updater.netlify.app/update.py"
 try:
-    out=requests.get(url="https://lim95.netlify.app/updater.html",timeout=3)
+    out=requests.get(url=link,timeout=3)
 except requests.ConnectionError as exception:
     print("Connect to the internet!")
     exit()
@@ -15,12 +16,8 @@ try:
 except FileNotFoundError:
     print("Please place this file in the directory as L-DOS X!")
     exit()
-link = "https://lim95.netlify.app/updater.html"
 f = requests.get(link)
-f=f.text
-code=f[f.find("<code>")+len("<code>"):f.find("</code>")].strip()
-print(code.strip())
-ldos.write(code.replace("\n",""))
+ldos.write(f.text)
 print("L-DOS X has been updated.")
 ldos.close()
 exit()
