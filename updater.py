@@ -7,7 +7,7 @@ except requests.ConnectionError as exception:
     print("Connect to the internet!")
     exit()
 if out.status_code==404:
-    print("The L-DOS X servers have been discontinued.\nThank you for using L-DOS.")
+    print("The L-DOS X servers must be down, or non-existent Thanks for trying anyways...")
     exit()
 if out.status_code==200:
     print("Connected to servers!")
